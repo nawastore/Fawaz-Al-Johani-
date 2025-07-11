@@ -1,0 +1,1004 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fawaz Al-Johani | Mechanical Technician</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary: #1328a1;
+            --secondary: #457b9d;
+            --dark: #141414;
+            --darker: #141414;
+            --gray: #2b2b2b;
+            --light: #f5f5f5;
+            --text: #e0e0e0;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--dark);
+            color: var(--text);
+            overflow-x: hidden;
+            line-height: 1.8;
+            scroll-behavior: smooth;
+        }
+        
+        /* Header Styles */
+        .hero-section {
+            height: 100vh;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            padding-top: 0;
+        }
+        
+        /* Unique Profile Frame */
+        .profile-container {
+            width: 270px;
+            height: 270px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+            box-shadow: 
+                0 0 0 4px var(--primary),
+                0 0 0 8px rgba(32, 7, 170, 0.3),
+                0 0 0 12px rgba(26, 9, 180, 0.2),
+                0 0 30px rgba(9, 12, 187, 0.5);
+            animation: pulse 3s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { box-shadow: 
+                0 0 0 4px var(--primary),
+                0 0 0 8px rgba(255, 255, 255, 0.3),
+                0 0 0 12px rgba(69, 123, 157, 0.2),
+                0 0 30px rgba(255, 255, 255, 0.5); }
+            50% { box-shadow: 
+                0 0 0 4px var(--primary),
+                0 0 0 8px #1328a1,
+                0 0 0 12px rgba(69, 123, 157, 0.2),
+                0 0 40px rgba(255, 255, 255, 0.8); }
+            100% { box-shadow: 
+                0 0 0 4px var(--primary),
+                0 0 0 8px #1328a1,
+                0 0 0 12px rgba(69, 123, 157, 0.2),
+                0 0 30px rgba(255, 255, 255, 0.5); }
+        }
+        
+        .profile-img {
+            width: 110%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+        
+        .profile-container:hover .profile-img {
+            transform: scale(1.05);
+        }
+        
+        .hero-content {
+            text-align: center;
+            position: relative;
+            z-index: 3;
+            padding-top: 40px;
+        }
+        
+        .hero-title {
+            font-size: 2.8rem;
+            font-weight: 800;
+            margin: 25px 0 15px;
+            color: var(--light);
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+        
+        .hero-subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+            color: #b8b8b8;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .hero-tags {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 25px 0 35px;
+        }
+        
+        .hero-tag {
+            color: var(--secondary);
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            border: 1px solid rgba(69, 123, 157, 0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .hero-tag:hover {
+            background: rgba(69, 123, 157, 0.4);
+            transform: translateY(-3px);
+        }
+        
+        /* Sections */
+        .section {
+            padding: 80px 0;
+            position: relative;
+        }
+        
+        .section-title {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 50px;
+            position: relative;
+            text-align: center;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--primary);
+            border-radius: 2px;
+        }
+        
+        /* Backgrounds */
+        .bg-darker {
+            background-color: var(--darker);
+        }
+        
+        /* About Me */
+        .about-content {
+            border-radius: 15px;
+            padding: 40px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        
+        .about-text {
+            font-size: 1.15rem;
+            line-height: 1.9;
+            color: #ddd;
+        }
+        
+        .about-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 40px;
+        }
+        
+        .about-feature {
+            border-radius: 15px;
+            padding: 20px;
+            border-left: 4px solid var(--primary);
+            transition: transform 0.3s ease;
+        }
+        
+        .about-feature:hover {
+            transform: translateY(-5px);
+        }
+        
+        .feature-title {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            color: var(--light);
+        }
+        
+        /* Expertise */
+        .expertise-card {
+            border-radius: 15px;
+            padding: 25px;
+            height: 100%;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: transform 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .expertise-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .expertise-icon {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: rgb(250, 250, 255);
+        }
+        
+        .expertise-name {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+        
+        .expertise-desc {
+            color: #bbb;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        
+        /* Experience Section */
+        .experience-card {
+            border-radius: 15px;
+            padding: 25px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            height: 100%;
+            transition: transform 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .experience-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .experience-icon {
+            font-size: 2rem;
+            color: rgb(250, 250, 255);
+            margin-bottom: 15px;
+        }
+        
+        .experience-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: var(--light);
+        }
+        
+        .experience-org {
+            color: var(--secondary);
+            margin-bottom: 15px;
+            font-size: 1rem;
+            font-weight: 500;
+        }
+        
+        .experience-date {
+            
+            color: white;
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            margin-top: 10px;
+        }
+        
+        .experience-desc {
+            color: #bbb;
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+        
+        /* Projects */
+        .project-card {
+            background: rgba(30, 30, 30, 0.7);
+            border-radius: 15px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            height: 100%;
+            position: relative;
+            transition: transform 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .project-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .project-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .project-card:hover .project-img {
+            transform: scale(1.05);
+        }
+        
+        .project-content {
+            padding: 20px;
+        }
+        
+        .project-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: var(--light);
+        }
+        
+        .project-desc {
+            color: #bbb;
+            margin-bottom: 20px;
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+        
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+        
+        .project-tag {
+            background: rgba(69, 123, 157, 0.2);
+            color: var(--secondary);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+        }
+        
+        /* Education */
+        .edu-card {
+            background: rgba(30, 30, 30, 0.7);
+            border-radius: 15px;
+            padding: 25px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .edu-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .edu-icon {
+            font-size: 2rem;
+            color: rgb(250, 250, 255);
+            margin-bottom: 15px;
+        }
+        
+        .edu-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: var(--light);
+        }
+        
+        .edu-org {
+            color: var(--secondary);
+            margin-bottom: 15px;
+            font-size: 1rem;
+            font-weight: 500;
+        }
+        
+        .edu-date {
+            
+            color: white;
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            margin-top: auto;
+            align-self: flex-start;
+        }
+        
+        /* Buttons */
+        .btn-custom {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 12px 35px;
+            border-radius: 30px;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: #1328a1;
+        }
+        
+        .btn-custom:hover {
+            background: #d63031;
+            transform: translateY(-3px);
+            box-shadow: #1328a1;
+        }
+        
+        .btn-outline-custom {
+            background: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+            padding: 10px 30px;
+            box-shadow: 0 5px 15px #1328a1;
+        }
+        
+        .btn-outline-custom:hover {
+            background: var(--primary);
+            color: white;
+            box-shadow: 0 8px 20px #1328a1;
+        }
+        
+        /* Contact Section */
+        .contact-info {
+            background: rgba(30, 30, 30, 0.7);
+            border-radius: 15px;
+            padding: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 25px;
+            transition: transform 0.3s ease;
+        }
+        
+        .contact-item:hover {
+            transform: translateX(5px);
+        }
+        
+        .contact-icon {
+            background: #311ee0;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+        
+        .contact-details h4 {
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+            color: var(--light);
+        }
+        
+        .contact-details p {
+            color: #bbb;
+            margin-bottom: 0;
+        }
+        
+        /* Footer */
+        .footer {
+            background: var(--darker);
+            padding: 40px 0 20px;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .social-icons {
+            margin-top: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .social-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 50%;
+            margin: 0 10px;
+            color: #ddd;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+        
+        .social-icon:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            color: #888;
+            font-size: 0.9rem;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            margin-top: 20px;
+        }
+        
+        /* Floating Shapes Background */
+        .floating-shapes {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .shape {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.1;
+            filter: blur(1px);
+        }
+        
+        .shape-1 {
+            width: 300px;
+            height: 300px;
+            background: var(--primary);
+            top: 10%;
+            left: 10%;
+            animation: float 15s infinite ease-in-out;
+        }
+        
+        .shape-2 {
+            width: 200px;
+            height: 200px;
+            background: var(--secondary);
+            top: 60%;
+            left: 80%;
+            animation: float 12s infinite ease-in-out reverse;
+        }
+        
+        .shape-3 {
+            width: 150px;
+            height: 150px;
+            background: var(--primary);
+            top: 30%;
+            left: 70%;
+            animation: float 18s infinite ease-in-out;
+        }
+        
+        .shape-4 {
+            width: 180px;
+            height: 180px;
+            background: var(--secondary);
+            top: 80%;
+            left: 20%;
+            animation: float 14s infinite ease-in-out reverse;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            25% { transform: translate(20px, -15px) rotate(5deg); }
+            50% { transform: translate(-15px, 10px) rotate(-5deg); }
+            75% { transform: translate(10px, 15px) rotate(3deg); }
+        }
+        
+        /* Responsive Adjustments */
+        @media (max-width: 992px) {
+            .hero-title {
+                font-size: 2.3rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .section {
+                padding: 70px 0;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero-section {
+                padding-top: 0;
+            }
+            
+            .hero-title {
+                font-size: 2rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+            
+            .profile-container {
+                width: 250px;
+                height: 250px;
+            }
+            
+            .about-content {
+                padding: 25px;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+        }
+        
+        /* Scroll to top button */
+        .scroll-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            cursor: pointer;
+            z-index: 100;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px #1328a1;
+        }
+        
+        .scroll-top.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .scroll-top:hover {
+            transform: translateY(-5px);
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="floating-shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+            <div class="shape shape-3"></div>
+            <div class="shape shape-4"></div>
+        </div>
+        
+        <div class="container">
+            <div class="hero-content">
+                <div class="profile-container">
+                    <img src="./assets/img/Fawaz.jpg" alt="Profile Picture" class="profile-img">
+                </div>
+                
+                <h1 class="hero-title">Fawaz Al-Johani</h1>
+               <p class="hero-subtitle">Skilled Mechanical Technician | Preventive Maintenance | Industrial Systems Troubleshooting</p>
+
+                
+                
+                
+                <div class="d-flex justify-content-center gap-3">
+                             <a href="./assets/files/FAWAZ Updated cv - Mechanical Maintenance.pdf" class="btn btn-outline-custom" download style="color: #f5f5f5;">
+    <i class="fas fa-download me-2"></i> Download Resume
+</a>
+                    <a href="#contact" class="btn btn-outline-custom" style="color: #f5f5f5;">
+                        <i class="fas fa-paper-plane me-1"></i> Contact Me
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Me Section -->
+    <section id="about" class="section">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="about-content">
+                        <div class="about-text">
+  <p>
+    <strong>Mechanical Maintenance Technician</strong><br>
+    A dedicated professional with a Diploma in Mechanical Maintenance Technology from Yanbu Industrial College. Gained hands-on experience through cooperative training at Saudi Aramco’s Al Muajjiz Crude Oil Terminal and practical work at Mada Gypsum Company.
+  </p>
+
+  <p>
+    Skilled in preventive maintenance, troubleshooting, and enhancing equipment reliability. Eager to contribute to a dynamic industrial environment by optimizing operational efficiency and supporting long-term equipment performance.
+  </p>
+</div>
+
+                        
+                       <div class="about-features">
+    <div class="about-feature">
+        <h3 class="feature-title">My Technical Expertise</h3>
+        <p>Skilled in preventive maintenance, troubleshooting, and ensuring optimal performance of mechanical systems and industrial equipment.</p>
+    </div>
+    
+    <div class="about-feature">
+        <h3 class="feature-title">My Work Approach</h3>
+        <p>Systematic inspection, timely repairs, root cause analysis, and proactive maintenance to minimize downtime.</p>
+    </div>
+    
+    <div class="about-feature">
+        <h3 class="feature-title">Professional Values</h3>
+        <p>Safety, reliability, attention to detail, teamwork, and continuous learning in the mechanical maintenance field.</p>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<!-- Academic Background Section -->
+<section id="education" class="section bg-darker">
+    <div class="container">
+        <h2 class="section-title">Academic Background</h2>
+        
+        <div class="row g-4">
+            <!-- Education 1 -->
+            <div class="col-md-6 col-lg-4">
+                <div class="edu-card">
+                    <i class="fas fa-graduation-cap edu-icon"></i>
+                    <h3 class="edu-title">Diploma of Technology in Mechanical Maintenance Technology</h3>
+                    <p class="edu-org">Yanbu Industrial College, Yanbu, Saudi Arabia</p>
+                    <span class="edu-date">2021 – 2024</span>
+                </div>
+            </div>
+
+            <!-- Certification -->
+            <div class="col-md-6 col-lg-4">
+                <div class="edu-card">
+                    <i class="fas fa-certificate edu-icon"></i>
+                    <h3 class="edu-title">Completion Certificate - Mechanical Maintenance Training</h3>
+                    <p class="edu-org">Saudi Aramco, Al Muajjiz Crude Oil Terminal</p>
+                    <span class="edu-date">September 2024</span>
+                    <p class="edu-desc mt-2">
+                        Successfully completed comprehensive mechanical maintenance training, including preventive maintenance, troubleshooting, and safety protocols.
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="mt-5 text-center">
+  
+
+        </div>
+    </div>
+</section>
+
+
+
+    <!-- Professional Experience Section -->
+  <section id="experience" class="section">
+    <div class="container">
+        <h2 class="section-title">Professional Experience</h2>
+        
+        <div class="row g-4">
+            <!-- Experience 1 -->
+            <div class="col-md-6 col-lg-4">
+                <div class="experience-card">
+                    <i class="fas fa-cogs experience-icon"></i>
+                    <h3 class="experience-title">Mechanical Maintenance Technician</h3>
+                    <p class="experience-org">Mada Gypsum</p>
+                    <span class="experience-date">November 2024 – Present</span>
+                    <p class="experience-desc mt-3">
+                        • Conduct daily routine mechanical maintenance for plaster and plasterboard plants.<br>
+                        • Perform maintenance checklists and ensure 100% online equipment functionality.<br>
+                        • Inspect and maintain production equipment, ensuring compliance with operational requirements.<br>
+                        • Complete preventive maintenance tasks, including cleaning, inspections, and updates to logs.<br>
+                        • Optimize spare parts usage and maintain proper tools and housekeeping.<br>
+                        • Prepare preventive maintenance reports and assist with other assigned duties.
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Experience 2 -->
+            <div class="col-md-6 col-lg-4">
+                <div class="experience-card">
+                    <i class="fas fa-tools experience-icon"></i>
+                    <h3 class="experience-title">Mechanical Maintenance Intern</h3>
+                    <p class="experience-org">Al Muajjiz Crude Oil Terminal - Saudi Aramco</p>
+                    <span class="experience-date">July 2024 – Sept 2024</span>
+                    <p class="experience-desc mt-3">
+                        • Assisted in the maintenance and troubleshooting of mechanical systems.<br>
+                        • Conducted routine inspections and preventive maintenance tasks.<br>
+                        • Collaborated with senior technicians and engineers to diagnose and repair equipment issues.<br>
+                        • Gained hands-on experience with various tools and technologies used in mechanical maintenance.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+    <!-- Expertise Section -->
+   <section id="expertise" class="section bg-darker">
+    <div class="container">
+        <h2 class="section-title">Technical Skills</h2>
+        
+        <div class="row g-4">
+            <!-- Mechanical Systems -->
+            <div class="col-md-4 col-sm-6">
+                <div class="expertise-card">
+                    <i class="fas fa-cogs expertise-icon"></i>
+                    <h3 class="expertise-name">Mechanical Systems</h3>
+                    <p class="expertise-desc">In-depth knowledge of mechanical systems operation and maintenance.</p>
+                </div>
+            </div>
+            
+            <!-- Maintenance -->
+            <div class="col-md-4 col-sm-6">
+                <div class="expertise-card">
+                    <i class="fas fa-tools expertise-icon"></i>
+                    <h3 class="expertise-name">Maintenance</h3>
+                    <p class="expertise-desc">Performing routine and preventive maintenance to ensure equipment reliability.</p>
+                </div>
+            </div>
+            
+            <!-- Troubleshooting and Problem-Solving -->
+            <div class="col-md-4 col-sm-6">
+                <div class="expertise-card">
+                    <i class="fas fa-search-plus expertise-icon"></i>
+                    <h3 class="expertise-name">Troubleshooting & Problem-Solving</h3>
+                    <p class="expertise-desc">Diagnosing mechanical issues quickly and implementing effective solutions.</p>
+                </div>
+            </div>
+            
+            <!-- Preventive Maintenance -->
+            <div class="col-md-4 col-sm-6">
+                <div class="expertise-card">
+                    <i class="fas fa-calendar-check expertise-icon"></i>
+                    <h3 class="expertise-name">Preventive Maintenance</h3>
+                    <p class="expertise-desc">Planning and executing scheduled maintenance to prevent breakdowns.</p>
+                </div>
+            </div>
+            
+            <!-- Hands-On Experience with Maintenance Tools -->
+            <div class="col-md-4 col-sm-6">
+                <div class="expertise-card">
+                    <i class="fas fa-wrench expertise-icon"></i>
+                    <h3 class="expertise-name">Hands-On Experience</h3>
+                    <p class="expertise-desc">Proficient in using various mechanical maintenance tools and equipment.</p>
+                </div>
+            </div>
+            
+            <!-- Safety Protocols and Procedures -->
+            <div class="col-md-4 col-sm-6">
+                <div class="expertise-card">
+                    <i class="fas fa-shield-alt expertise-icon"></i>
+                    <h3 class="expertise-name">Safety Protocols & Procedures</h3>
+                    <p class="expertise-desc">Adhering to safety standards to ensure a secure work environment.</p>
+                </div>
+            </div>
+            
+            <!-- Team Collaboration and Communication -->
+            <div class="col-md-4 col-sm-6">
+                <div class="expertise-card">
+                    <i class="fas fa-users expertise-icon"></i>
+                    <h3 class="expertise-name">Team Collaboration & Communication</h3>
+                    <p class="expertise-desc">Effective teamwork and communication to achieve maintenance goals.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+    <!-- Contact Section -->
+    <section id="contact" class="section bg-darker">
+        <div class="container">
+            <h2 class="section-title">Contact Me</h2>
+            
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4>Email</h4>
+                                 <p><a href="mailto:Fawaz123j@gmail.com" style="color: #e0e0e0; text-decoration: none;">Fawaz123j@gmail.com</a></p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4>Phone</h4>
+                                 <p><a href="tel:0510186686" style="color: #e0e0e0; text-decoration: none;">0510186686</a></p>
+                            </div>
+                        </div>
+                        
+                        
+                        
+                       
+                        
+                        
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="social-icons">
+                <a href="https://www.linkedin.com/in/fawaz-aljohani-58b509327?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                
+            </div>
+            
+           <div class="copyright">
+    <p>&copy; <span id="current-year"></span> Fawaz Al-Johani . All Rights Reserved.</p>
+    <p class="mt-2">This portfolio was designed and developed By <a href="https://salla.sa/nawastore1" style="color: aliceblue; text-decoration: double;">Nawa Code Store</a></p>
+</div>
+
+<script>
+    // Set current year dynamically
+    document.getElementById("current-year").textContent = new Date().getFullYear();
+</script>
+
+        </div>
+    </footer>
+
+    <!-- Scroll to top button -->
+    <div class="scroll-top">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <!-- Scripts -->
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom JS -->
+    <script>
+        // Scroll to top button
+        const scrollBtn = document.querySelector('.scroll-top');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                scrollBtn.classList.add('active');
+            } else {
+                scrollBtn.classList.remove('active');
+            }
+        });
+        
+        scrollBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    window.scrollTo({
+                        top: target.offsetTop - 50,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
